@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedMystery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">Medical clue game</p>
+      <h1>MedMystery</h1>
+      <p class="subtitle">
+        Guess the diagnosis in up to <strong>6 clues</strong>. Miss a guess, unlock the next clue. Get all 6 wrong and the round is over.
+      </p>
+      <div class="meta">
+        <span><strong id="diseaseCount">0</strong> diseases included</span>
+        <span>Browser game, no backend needed</span>
+        <span>Deployable on Vercel</span>
+      </div>
+    </section>
+
+    <section class="controls card">
+      <div class="mode-row">
+        <button id="randomModeBtn" type="button">Random mode</button>
+        <button id="systemModeBtn" type="button">System mode</button>
+        <select id="systemSelect" aria-label="Pick a body system">
+          <option value="Cardio">Cardio</option>
+        </select>
+      </div>
+      <p class="hint">Use random mode for mixed practice, or system mode to drill one body system.</p>
+    </section>
+
+    <section class="game-grid">
+      <section class="card left-panel">
+        <div class="panel-header">
+          <h2>Clues</h2>
+          <span id="progress">Clues shown: 0 / 6</span>
+        </div>
+        <ol id="clueList" class="clue-list"></ol>
+      </section>
+
+      <section class="card right-panel">
+        <h2>Your guess</h2>
+        <form id="guessForm" class="guess-form">
+          <input id="guessInput" type="text" placeholder="Type a disease name..." autocomplete="off" />
+          <button type="submit">Submit guess</button>
+        </form>
+
+        <div id="message" class="message" data-type="info">
+          Start guessing. One wrong answer unlocks the next clue.
+        </div>
+
+        <div class="button-row">
+          <button id="giveUpBtn" type="button" class="secondary">Give up</button>
+          <button id="nextBtn" type="button" class="secondary" disabled>Next case</button>
+        </div>
+
+        <p id="answerReveal" class="answer-reveal"></p>
+        <p id="stats" class="stats"></p>
+      </section>
+    </section>
+
+    <section class="card footer-card">
+      <h3>How to deploy this on Vercel</h3>
+      <p>
+        Put these files in a GitHub repo and import the repo into Vercel, or drag-and-drop the folder in Vercel if you use their static deployment flow.
+        Because this is a plain static site, there is no server setup.
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
